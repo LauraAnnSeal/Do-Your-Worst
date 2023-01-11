@@ -1,0 +1,48 @@
+.btn-info{
+    background-color: $palePink;
+    border: none;
+    color: white;
+    transition: 0.5s;
+    height: 3rem;
+    width: 3rem;
+    font-size: 2rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    &:hover{
+        background-color: $mustard;
+        color: black;
+        border: none;
+    }
+    @include mQ ($xxl){
+        width: 5rem;
+        height: 5rem;
+        i{
+            font-size: 3rem;
+        }
+    }
+}
+.btn-warning{
+    background: $mustard;
+    color: black;
+    font-family: $rock;
+    border-radius: 20px;
+    margin: 2px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    &:hover{
+        background: $palePink;
+        border: $palePink;
+    }
+}
+.btn-danger{
+    background: $ruby;
+    color: white;
+    font-family: $rock;
+    border-radius: 20px;
+    margin: 2px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    &:hover{
+        background: $palePink;
+        border: $palePink;
+    }
+}

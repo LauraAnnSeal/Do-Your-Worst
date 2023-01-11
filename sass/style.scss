@@ -1,0 +1,24 @@
+@import 'var', 'mixins', 'btn', 'menu';
+
+/*!
+Theme Name: DOYOURWORST
+Author: LauraAnnSeal.com
+Author URI: LauraAnnSeal.com
+Description: Description
+Version: 1.0.0
+Tested up to: 5.4
+Requires PHP: 5.6
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: doyourworst
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+*/
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: $roboto;
+    font-size: 1 rem;
+    background-color: $hotPink;
+    color: white;
+}

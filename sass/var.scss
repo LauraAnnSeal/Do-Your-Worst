@@ -1,0 +1,54 @@
+/* -------------------------------------------------------------------------- */
+/*                                    Fonts                                   */
+/* -------------------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Rock+Salt&display=swap');
+$rock: 'Rock Salt', cursive;
+$bebas: 'Bebas Neue', cursive;
+$roboto: 'Roboto Condensed', sans-serif;
+$light: 300;
+$regular: 400;
+$bold: 700;
+
+
+/* -------------------------------------------------------------------------- */
+/*                                   Z Index                                  */
+/* -------------------------------------------------------------------------- */
+$z-back: -10;
+$z-temp-front: 11;
+$z-loading: 10;
+$z-menu-open: 9;
+$z-menu-bar: 8;
+$front: 7;
+
+
+/* -------------------------------------------------------------------------- */
+/*                                   Colours                                  */
+/* -------------------------------------------------------------------------- */
+$ruby: #D64285;
+$hotPink: #FF5EAB;
+$palePink: #FF9FD6;
+$mustard: #F8DA34;
+$charcoal: #707070;
+
+$color-list: (
+    dyw-ruby: #D64285,
+    dyw-hotPink: #FF5EAB,
+    dyw-palePink: #FF9FD6,
+    dyw-mustard: #F8DA34,
+    dyw-charcoal: #707070
+);
+
+@each $name, $color in $color-list {
+    .bg-#{$name}{background-color: $color;}
+    .text-#{$name}{color: $color;}
+}
+
+
+/* -------------------------------------------------------------------------- */
+/*                                 Breakpoints                                */
+/* -------------------------------------------------------------------------- */
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 2500px;
