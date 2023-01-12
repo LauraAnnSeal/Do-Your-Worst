@@ -1,0 +1,74 @@
+#loading-screen{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: $z-loading;
+    height: 100vh;
+    width: 100vw;
+    background: $hotPink;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .gif-holder{
+        width: 55vw;
+        height: 55vw;
+        border-radius: 100%;
+        overflow: hidden;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        margin-bottom: 30px;
+        @include mQ ($md){
+            width: 40vw;
+            height: 40vw;
+        }
+        @include mQ ($lg){
+            width: 20vw;
+            height: 20vw; 
+        }
+    }
+    img{
+        width: 100%;
+        height: 100%;
+    }
+    #loading-logo{
+        width: 60vw;
+        height: auto;
+        @include mQ ($md){
+            width: 40vw;
+        }
+        @include mQ ($lg){
+            width: 30vw;
+            margin-left: 30px;
+        }
+        @include mQ ($xxl){
+           margin-left: 60px;
+        }
+    }
+    #loading-message{
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        padding: 10px 30px 10px 30px;
+        background: $ruby;
+        width: 45vw;
+        border-radius: 0 15px 0 0 ;
+        @include mQ ($md){
+            width: 30vw;
+        }
+        @include mQ ($lg){
+            width: 20vw;
+        }
+        @include mQ ($xxl){
+            width: 15vw;
+        }
+        h2{
+            font-size: 2rem;
+            @include mQ ($md){
+                font-size: 3rem;
+            }
+            @include mQ ($xxl){
+                font-size: 5rem;
+            }
+        }
+    }
+}

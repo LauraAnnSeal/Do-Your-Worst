@@ -1,0 +1,84 @@
+footer{
+    background: $ruby;
+    color: white;
+    padding: 0;
+    margin: 0;
+}
+
+#timer{
+
+    background-image: url('assets/images/timer-bg.jpg');
+    background-size: cover;
+    background-position: top center;
+    background-repeat: none;
+    position: relative;
+    padding: 30px 0;
+    
+    .count-item{
+        width: 20vw;
+        height: 25vw;
+        background: rgba($ruby, 0.4);
+        border-radius: 10px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        @include mQ ($md){
+            height: 20vw;
+        }
+        @include mQ ($lg){
+            width: 13vw;
+            height: 19vw;
+        }
+        @include mQ ($xxl){
+            width: 8vw;
+            height: 12vw;
+        }
+    }
+    .number{
+        font-family: $rock;
+        font-size: 2rem;
+        padding-bottom: 5px;
+        @include mQ ($md){
+            font-size: 3.5rem;
+        }
+        @include mQ ($lg){
+            font-size: 4.5rem;
+        }
+    }
+    .lable{
+        font-family: $roboto;
+        font-size: 1rem;
+        text-transform: uppercase;
+        @include mQ ($md){
+            letter-spacing: 5px;;
+        }
+    }
+    span.seperator{
+        font-family: $rock;
+        font-size: 1rem;
+        @include mQ ($lg){
+            font-size: 3rem;
+            width: 2vw;
+        }
+        @include mQ ($xl){
+            font-size: 3rem;
+            width: 1vw;
+        }
+    }
+}
+
+#timer-top-mobile{
+    .white-line{
+        height: 3px;
+        background: white;
+    }
+    margin-bottom: 30px;
+    @include mQ ($lg){
+        width: calc(19vw*4 + 20px*3);
+    }
+    @include mQ ($xxl){
+        width: calc(12vw*4 + 20px*3);
+    }
+
+}

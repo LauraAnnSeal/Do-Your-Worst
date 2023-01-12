@@ -1,3 +1,10 @@
+.btn-lg{
+    @include mQ ($lg){
+        padding: 20px;
+        border-radius: 40px!important;
+    }
+}
+
 .btn-info{
     background-color: $palePink;
     border: none;
@@ -15,8 +22,8 @@
         border: none;
     }
     @include mQ ($xxl){
-        width: 5rem;
-        height: 5rem;
+        width: 4rem;
+        height: 4rem;
         i{
             font-size: 3rem;
         }
@@ -32,6 +39,10 @@
     &:hover{
         background: $palePink;
         border: $palePink;
+    }
+    i{
+        margin: 0 2px;
+        font-size: 1.5rem;
     }
 }
 .btn-danger{

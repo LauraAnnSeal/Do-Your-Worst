@@ -1,0 +1,31 @@
+img.cast_image{
+    width: 49%;
+    margin: 2px 0;
+    height: auto;
+    display: inline-block;
+    border-radius: 15px;
+    @include mQ ($md){
+        width: 25%;
+        margin: 0 4px;
+    }
+}
+.findout-divs{
+    margin-top: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    h2, p, a.btn {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .img-box{
+        width: 100%;
+        height: 40vh;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @include mQ ($md){
+            height: 25vh;
+        }
+    }
+}

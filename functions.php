@@ -176,3 +176,184 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+
+
+
+
+
+
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                     ADD REVIEWS TO WORDPRESS POST TYPES                    */
+/* -------------------------------------------------------------------------- */
+
+function prefix_create_custom_post_type_review() {
+    /*
+     * The $labels describes how the post type appears.
+     */
+    $labels = array(
+        'name'          => 'Reviews', // Plural name
+        'singular_name' => 'Review'   // Singular name
+    );
+
+    /*
+     * The $supports parameter describes what the post type supports
+     */
+    $supports = array(
+        'title',        // Post title
+        'custom-fields', // Supports by custom fields
+        'editor'
+    );
+
+    /*
+     * The $args parameter holds important parameters for the custom post type
+     */
+    $args = array(
+        'labels'              => $labels,
+        'description'         => 'Post type post product', // Description
+        'supports'            => $supports,
+        'taxonomies'          => array( 'category', 'post_tag' ), // Allowed taxonomies
+        'hierarchical'        => false, // Allows hierarchical categorization, if set to false, the Custom Post Type will behave like Post, else it will behave like Page
+        'public'              => true,  // Makes the post type public
+        'show_ui'             => true,  // Displays an interface for this post type
+        'show_in_menu'        => true,  // Displays in the Admin Menu (the left panel)
+        'show_in_nav_menus'   => true,  // Displays in Appearance -> Menus
+        'show_in_admin_bar'   => true,  // Displays in the black admin bar
+        'menu_position'       => 5,     // The position number in the left menu
+        'menu_icon'           => true,  // The URL for the icon used for this post type
+        'can_export'          => true,  // Allows content export using Tools -> Export
+        'has_archive'         => true,  // Enables post type archive (by month, date, or year)
+        'exclude_from_search' => false, // Excludes posts of this type in the front-end search result page if set to true, include them if set to false
+        'publicly_queryable'  => true,  // Allows queries to be performed on the front-end part if set to true
+        'capability_type'     => 'post' // Allows read, edit, delete like “Post”
+    );
+
+    register_post_type('review', $args); //Create a post type with the slug is ‘product’ and arguments in $args.
+}
+add_action('init', 'prefix_create_custom_post_type_review');
+
+
+
+
+
+
+
+
+
+/* -------------------------------------------------------------------------- */
+/*              ADD PRESS OFFICE AND INTERVIEWS TO WP POST TYPES              */
+/* -------------------------------------------------------------------------- */
+
+function prefix_create_custom_post_type_press() {
+    /*
+     * The $labels describes how the post type appears.
+     */
+    $labels = array(
+        'name'          => 'Press & Interviews', // Plural name
+        'singular_name' => 'Press & interview'   // Singular name
+    );
+
+    /*
+     * The $supports parameter describes what the post type supports
+     */
+    $supports = array(
+        'title',        // Post title
+        'custom-fields', // Supports by custom fields
+        'editor'
+    );
+
+    /*
+     * The $args parameter holds important parameters for the custom post type
+     */
+    $args = array(
+        'labels'              => $labels,
+        'description'         => 'Post type post product', // Description
+        'supports'            => $supports,
+        'taxonomies'          => array( 'category', 'post_tag' ), // Allowed taxonomies
+        'hierarchical'        => false, // Allows hierarchical categorization, if set to false, the Custom Post Type will behave like Post, else it will behave like Page
+        'public'              => true,  // Makes the post type public
+        'show_ui'             => true,  // Displays an interface for this post type
+        'show_in_menu'        => true,  // Displays in the Admin Menu (the left panel)
+        'show_in_nav_menus'   => true,  // Displays in Appearance -> Menus
+        'show_in_admin_bar'   => true,  // Displays in the black admin bar
+        'menu_position'       => 5,     // The position number in the left menu
+        'menu_icon'           => true,  // The URL for the icon used for this post type
+        'can_export'          => true,  // Allows content export using Tools -> Export
+        'has_archive'         => true,  // Enables post type archive (by month, date, or year)
+        'exclude_from_search' => false, // Excludes posts of this type in the front-end search result page if set to true, include them if set to false
+        'publicly_queryable'  => true,  // Allows queries to be performed on the front-end part if set to true
+        'capability_type'     => 'post' // Allows read, edit, delete like “Post”
+    );
+
+    register_post_type('press', $args); //Create a post type with the slug is ‘product’ and arguments in $args.
+}
+add_action('init', 'prefix_create_custom_post_type_press');
+
+
+
+
+
+
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                                 HIDE POSTS                                 */
+/* -------------------------------------------------------------------------- */
+function remove_posts_menu() {
+    remove_menu_page('edit.php');
+}
+add_action('admin_menu', 'remove_posts_menu');
+
+
+
+
+
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                          HIDE AND DISABLE COMMENTS                         */
+/* -------------------------------------------------------------------------- */
+
+add_action('admin_init', function () {
+    // Redirect any user trying to access comments page
+    global $pagenow;
+    
+    if ($pagenow === 'edit-comments.php') {
+        wp_redirect(admin_url());
+        exit;
+    }
+
+    // Remove comments metabox from dashboard
+    remove_meta_box('dashboard_recent_comments', 'dashboard', 'normal');
+
+    // Disable support for comments and trackbacks in post types
+    foreach (get_post_types() as $post_type) {
+        if (post_type_supports($post_type, 'comments')) {
+            remove_post_type_support($post_type, 'comments');
+            remove_post_type_support($post_type, 'trackbacks');
+        }
+    }
+});
+
+// Close comments on the front-end
+add_filter('comments_open', '__return_false', 20, 2);
+add_filter('pings_open', '__return_false', 20, 2);
+
+// Hide existing comments
+add_filter('comments_array', '__return_empty_array', 10, 2);
+
+// Remove comments page in menu
+add_action('admin_menu', function () {
+    remove_menu_page('edit-comments.php');
+});
+
+// Remove comments links from admin bar
+add_action('init', function () {
+    if (is_admin_bar_showing()) {
+        remove_action('admin_bar_menu', 'wp_admin_bar_comments_menu', 60);
+    }
+});

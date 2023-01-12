@@ -52,8 +52,18 @@
 /*                                 Breakpoints                                */
 /* -------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------- */
+/*                               Other Elements                               */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
 /*                              // media queries                              */
 /* -------------------------------------------------------------------------- */
+@media only screen and (min-width: 992px) {
+  .btn-lg {
+    padding: 20px;
+    border-radius: 40px !important;
+  }
+}
+
 .btn-info {
   background-color: #FF9FD6;
   border: none;
@@ -73,8 +83,8 @@
 }
 @media only screen and (min-width: 2500px) {
   .btn-info {
-    width: 5rem;
-    height: 5rem;
+    width: 4rem;
+    height: 4rem;
   }
   .btn-info i {
     font-size: 3rem;
@@ -93,6 +103,10 @@
   background: #FF9FD6;
   border: #FF9FD6;
 }
+.btn-warning i {
+  margin: 0 2px;
+  font-size: 1.5rem;
+}
 
 .btn-danger {
   background: #D64285;
@@ -108,11 +122,17 @@
 }
 
 #menu-bar {
+  z-index: 8;
   position: fixed;
   top: 0;
   left: 0;
   padding: 0;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+#menu-hidden {
+  opacity: 0;
+  z-index: -10;
 }
 
 #logo {
@@ -157,7 +177,7 @@
 }
 #netflix-info div {
   background: black;
-  box-shadow: rgba(255, 159, 214, 0.19) 0px 10px 20px, rgba(255, 159, 214, 0.23) 0px 6px 6px;
+  box-shadow: rgba(255, 159, 214, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
   height: 120%;
   border-radius: 0 0 15px 15px;
   display: inline-flex;
@@ -220,6 +240,7 @@
 /*                                  Open Menu                                 */
 /* -------------------------------------------------------------------------- */
 #menu {
+  z-index: 9;
   background: rgba(255, 94, 171, 0.7);
   color: white;
   width: 100vw;
@@ -245,6 +266,7 @@
 }
 
 .wrapper {
+  z-index: 9;
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -288,6 +310,254 @@
   display: inline-block;
 }
 
+/* -------------------------------------------------------------------------- */
+/*                               Social Sidebar                               */
+/* -------------------------------------------------------------------------- */
+#social-sidebar {
+  width: 100vw;
+}
+#social-sidebar .btn {
+  height: 2rem;
+  width: 2rem;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  margin-left: 0.2rem;
+}
+
+footer {
+  background: #D64285;
+  color: white;
+  padding: 0;
+  margin: 0;
+}
+
+#timer {
+  background-image: url("assets/images/timer-bg.jpg");
+  background-size: cover;
+  background-position: top center;
+  background-repeat: none;
+  position: relative;
+  padding: 30px 0;
+}
+#timer .count-item {
+  width: 20vw;
+  height: 25vw;
+  background: rgba(214, 66, 133, 0.4);
+  border-radius: 10px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+@media only screen and (min-width: 768px) {
+  #timer .count-item {
+    height: 20vw;
+  }
+}
+@media only screen and (min-width: 992px) {
+  #timer .count-item {
+    width: 13vw;
+    height: 19vw;
+  }
+}
+@media only screen and (min-width: 2500px) {
+  #timer .count-item {
+    width: 8vw;
+    height: 12vw;
+  }
+}
+#timer .number {
+  font-family: "Rock Salt", cursive;
+  font-size: 2rem;
+  padding-bottom: 5px;
+}
+@media only screen and (min-width: 768px) {
+  #timer .number {
+    font-size: 3.5rem;
+  }
+}
+@media only screen and (min-width: 992px) {
+  #timer .number {
+    font-size: 4.5rem;
+  }
+}
+#timer .lable {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+@media only screen and (min-width: 768px) {
+  #timer .lable {
+    letter-spacing: 5px;
+  }
+}
+#timer span.seperator {
+  font-family: "Rock Salt", cursive;
+  font-size: 1rem;
+}
+@media only screen and (min-width: 992px) {
+  #timer span.seperator {
+    font-size: 3rem;
+    width: 2vw;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  #timer span.seperator {
+    font-size: 3rem;
+    width: 1vw;
+  }
+}
+
+#timer-top-mobile {
+  margin-bottom: 30px;
+}
+#timer-top-mobile .white-line {
+  height: 3px;
+  background: white;
+}
+@media only screen and (min-width: 992px) {
+  #timer-top-mobile {
+    width: calc(76vw + 60px);
+  }
+}
+@media only screen and (min-width: 2500px) {
+  #timer-top-mobile {
+    width: calc(48vw + 60px);
+  }
+}
+
+#loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  height: 100vh;
+  width: 100vw;
+  background: #FF5EAB;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#loading-screen .gif-holder {
+  width: 55vw;
+  height: 55vw;
+  border-radius: 100%;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  margin-bottom: 30px;
+}
+@media only screen and (min-width: 768px) {
+  #loading-screen .gif-holder {
+    width: 40vw;
+    height: 40vw;
+  }
+}
+@media only screen and (min-width: 992px) {
+  #loading-screen .gif-holder {
+    width: 20vw;
+    height: 20vw;
+  }
+}
+#loading-screen img {
+  width: 100%;
+  height: 100%;
+}
+#loading-screen #loading-logo {
+  width: 60vw;
+  height: auto;
+}
+@media only screen and (min-width: 768px) {
+  #loading-screen #loading-logo {
+    width: 40vw;
+  }
+}
+@media only screen and (min-width: 992px) {
+  #loading-screen #loading-logo {
+    width: 30vw;
+    margin-left: 30px;
+  }
+}
+@media only screen and (min-width: 2500px) {
+  #loading-screen #loading-logo {
+    margin-left: 60px;
+  }
+}
+#loading-screen #loading-message {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 10px 30px 10px 30px;
+  background: #D64285;
+  width: 45vw;
+  border-radius: 0 15px 0 0;
+}
+@media only screen and (min-width: 768px) {
+  #loading-screen #loading-message {
+    width: 30vw;
+  }
+}
+@media only screen and (min-width: 992px) {
+  #loading-screen #loading-message {
+    width: 20vw;
+  }
+}
+@media only screen and (min-width: 2500px) {
+  #loading-screen #loading-message {
+    width: 15vw;
+  }
+}
+#loading-screen #loading-message h2 {
+  font-size: 2rem;
+}
+@media only screen and (min-width: 768px) {
+  #loading-screen #loading-message h2 {
+    font-size: 3rem;
+  }
+}
+@media only screen and (min-width: 2500px) {
+  #loading-screen #loading-message h2 {
+    font-size: 5rem;
+  }
+}
+
+img.cast_image {
+  width: 49%;
+  margin: 2px 0;
+  height: auto;
+  display: inline-block;
+  border-radius: 15px;
+}
+@media only screen and (min-width: 768px) {
+  img.cast_image {
+    width: 25%;
+    margin: 0 4px;
+  }
+}
+
+.findout-divs {
+  margin-top: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.findout-divs h2, .findout-divs p, .findout-divs a.btn {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.findout-divs .img-box {
+  width: 100%;
+  height: 40vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media only screen and (min-width: 768px) {
+  .findout-divs .img-box {
+    height: 25vh;
+  }
+}
+
 /*!
 Theme Name: DOYOURWORST
 Author: LauraAnnSeal.com
@@ -305,9 +575,97 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Roboto Condensed", sans-serif;
-  font-size: 1 rem;
+  font-size: 1rem;
   background-color: #FF5EAB;
   color: white;
+}
+@media only screen and (min-width: 992px) {
+  body {
+    font-size: 1.2rem;
+  }
+}
+@media only screen and (min-width: 2500px) {
+  body {
+    font-size: 1.5rem;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .container {
+    max-width: 60vw;
+  }
+}
+@media only screen and (min-width: 2500px) {
+  .container {
+    max-width: 40vw;
+  }
+}
+
+.section {
+  padding: 10vh 0;
+}
+
+@media only screen and (min-width: 768px) {
+  .rounded {
+    border-radius: 20px;
+  }
+}
+
+h1 {
+  font-family: "Bebas Neue", cursive;
+  font-size: 3rem;
+}
+@media only screen and (min-width: 768px) {
+  h1 {
+    font-size: 6rem;
+  }
+}
+@media only screen and (min-width: 992px) {
+  h1 {
+    font-size: 8rem;
+  }
+}
+@media only screen and (min-width: 2500px) {
+  h1 {
+    font-size: 12rem;
+  }
+}
+
+h2 {
+  font-family: "Bebas Neue", cursive;
+  font-size: 2rem;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  font-family: "Rock Salt", cursive;
+}
+
+span.rock {
+  font-family: "Rock Salt", cursive;
+}
+
+form {
+  background: rgba(255, 255, 255, 0.3);
+  border: 3px solid white;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+input.form-control {
+  border: none;
+  border-bottom: 2px solid white;
+  border-radius: 0;
+  background: none;
+  color: white;
+  padding-left: 0;
+}
+input.form-control::placeholder {
+  color: white;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 300;
 }
 
 /*# sourceMappingURL=style.css.map */

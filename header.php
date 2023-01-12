@@ -35,4 +35,8 @@
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'doyourworst' ); ?></a>
 
 	
+	
 <?php echo get_template_part('template-parts/content', 'header') ?>
+
+
+<?php get_template_part('template-parts/content', 'loading'); ?>
