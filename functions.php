@@ -299,6 +299,9 @@ add_action('init', 'prefix_create_custom_post_type_press');
 
 
 
+
+
+
 /* -------------------------------------------------------------------------- */
 /*                                 HIDE POSTS                                 */
 /* -------------------------------------------------------------------------- */
@@ -357,3 +360,17 @@ add_action('init', function () {
         remove_action('admin_bar_menu', 'wp_admin_bar_comments_menu', 60);
     }
 });
+
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                                   Expert                                   */
+/* -------------------------------------------------------------------------- */
+function new_excerpt_more($more) {
+    return '...';
+}
+add_filter('excerpt_more', 'new_excerpt_more');
+
+
+

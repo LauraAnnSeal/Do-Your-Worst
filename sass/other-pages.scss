@@ -1,0 +1,28 @@
+.actor-img{
+    width: 50vw;
+    height: 50vw;
+    border-radius: 100%;
+    @include mQ ($md){
+        width: 25vw;
+        height: 25vw;
+    }
+    @include mQ ($lg){
+        width: 18vw;
+        height: 18vw;
+    }
+    @include mQ ($xxl){
+        width: 12vw;
+        height: 12vw;
+    }
+}
+
+
+.logo-img{
+
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+#publication-name{
+    font-family: $rock;
+    font-size: 2rem;
+}

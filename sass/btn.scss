@@ -4,10 +4,12 @@
         border-radius: 40px!important;
     }
 }
+.btn{
+    border: none!important;
+}
 
 .btn-info{
     background-color: $palePink;
-    border: none;
     color: white;
     transition: 0.5s;
     height: 3rem;
@@ -19,7 +21,6 @@
     &:hover{
         background-color: $mustard;
         color: black;
-        border: none;
     }
     @include mQ ($xxl){
         width: 4rem;
@@ -38,7 +39,7 @@
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     &:hover{
         background: $palePink;
-        border: $palePink;
+        margin: 2px;
     }
     i{
         margin: 0 2px;
@@ -54,6 +55,6 @@
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     &:hover{
         background: $palePink;
-        border: $palePink;
+        margin: 2px;
     }
 }

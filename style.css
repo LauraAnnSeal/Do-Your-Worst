@@ -64,9 +64,12 @@
   }
 }
 
+.btn {
+  border: none !important;
+}
+
 .btn-info {
   background-color: #FF9FD6;
-  border: none;
   color: white;
   transition: 0.5s;
   height: 3rem;
@@ -79,7 +82,6 @@
 .btn-info:hover {
   background-color: #F8DA34;
   color: black;
-  border: none;
 }
 @media only screen and (min-width: 2500px) {
   .btn-info {
@@ -101,7 +103,7 @@
 }
 .btn-warning:hover {
   background: #FF9FD6;
-  border: #FF9FD6;
+  margin: 2px;
 }
 .btn-warning i {
   margin: 0 2px;
@@ -118,7 +120,7 @@
 }
 .btn-danger:hover {
   background: #FF9FD6;
-  border: #FF9FD6;
+  margin: 2px;
 }
 
 #menu-bar {
@@ -535,27 +537,165 @@ img.cast_image {
   }
 }
 
-.findout-divs {
+.findout-divs, .press {
   margin-top: 20px;
   padding-top: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 30px;
+  padding: 20px;
 }
-.findout-divs h2, .findout-divs p, .findout-divs a.btn {
-  margin-left: 10px;
-  margin-right: 10px;
-}
-.findout-divs .img-box {
-  width: 100%;
-  height: 40vh;
+.findout-divs .img-box, .press .img-box {
+  width: calc(100% + 40px);
+  transform: translateX(-20px);
+  max-height: 40vh;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 @media only screen and (min-width: 768px) {
-  .findout-divs .img-box {
+  .findout-divs .img-box, .press .img-box {
     height: 25vh;
   }
+}
+
+#reviews {
+  max-height: 60vh;
+  overflow-y: scroll;
+}
+@media only screen and (min-width: 768px) {
+  #reviews {
+    max-height: 50vh;
+  }
+}
+
+#single-review i {
+  color: #F8DA34;
+}
+#single-review hr {
+  border-bottom: 1px solid white;
+  opacity: 1;
+  height: 10px;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+  border-top: none;
+}
+
+.actor-img {
+  width: 50vw;
+  height: 50vw;
+  border-radius: 100%;
+}
+@media only screen and (min-width: 768px) {
+  .actor-img {
+    width: 25vw;
+    height: 25vw;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .actor-img {
+    width: 18vw;
+    height: 18vw;
+  }
+}
+@media only screen and (min-width: 2500px) {
+  .actor-img {
+    width: 12vw;
+    height: 12vw;
+  }
+}
+
+.logo-img {
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+#publication-name {
+  font-family: "Rock Salt", cursive;
+  font-size: 2rem;
+}
+
+.carousel-container {
+  margin-top: 2rem;
+}
+@media only screen and (min-width: 992px) {
+  .carousel-container {
+    margin-top: 10rem;
+  }
+}
+
+.carousel {
+  position: relative;
+  font-size: 2.5vmin;
+  width: 80vw;
+  margin-left: 10vw;
+}
+@media only screen and (min-width: 768px) and (orientation: landscape) {
+  .carousel {
+    width: 40vw;
+    margin-left: 30vw;
+  }
+}
+
+.carousel-slider {
+  display: flex;
+  transition: 0.3s;
+}
+
+.carousel-slide {
+  flex: 1 0 100%;
+  border-radius: 20px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow: hidden;
+}
+
+.carousel-slide img {
+  display: block;
+  width: 80vw;
+  height: 80vw;
+  border-radius: 20px;
+  object-fit: cover;
+}
+@media only screen and (min-width: 768px) and (orientation: landscape) {
+  .carousel-slide img {
+    height: 35vw;
+    width: 40vw;
+  }
+}
+
+.carousel button {
+  font-size: inherit;
+}
+
+.carousel-prev,
+.carousel-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 1em;
+  border: none;
+  border-radius: 25%;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.carousel-prev {
+  left: -2em;
+}
+
+.carousel-next {
+  right: -2em;
+}
+
+.carousel-navigation {
+  position: absolute;
+  bottom: -1em;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  display: none;
 }
 
 /*!
@@ -571,6 +711,12 @@ License URI: LICENSE
 Text Domain: doyourworst
 Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
 */
+html, body {
+  max-width: 100vw;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -614,26 +760,42 @@ body {
 h1 {
   font-family: "Bebas Neue", cursive;
   font-size: 3rem;
+  line-height: 3rem;
 }
 @media only screen and (min-width: 768px) {
   h1 {
     font-size: 6rem;
+    line-height: 6rem;
   }
 }
 @media only screen and (min-width: 992px) {
   h1 {
     font-size: 8rem;
+    line-height: 8rem;
   }
 }
 @media only screen and (min-width: 2500px) {
   h1 {
     font-size: 12rem;
+    line-height: 12rem;
   }
 }
 
 h2 {
   font-family: "Bebas Neue", cursive;
   font-size: 2rem;
+}
+@media only screen and (min-width: 768px) {
+  h2 {
+    font-size: 3.5rem;
+    line-height: 3.5rem;
+  }
+}
+
+h3 {
+  font-family: "Bebas Neue", cursive;
+  font-size: 2rem;
+  line-height: 2rem;
 }
 
 a {
@@ -642,7 +804,7 @@ a {
   font-family: "Rock Salt", cursive;
 }
 
-span.rock {
+.rock {
   font-family: "Rock Salt", cursive;
 }
 

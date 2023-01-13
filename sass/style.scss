@@ -1,4 +1,4 @@
-@import 'var', 'mixins', 'btn', 'menu', 'footer', 'loading', 'homepage';
+@import 'var', 'mixins', 'btn', 'menu', 'footer', 'loading', 'homepage', 'other-pages', 'carousel';
 
 /*!
 Theme Name: DOYOURWORST
@@ -13,7 +13,11 @@ License URI: LICENSE
 Text Domain: doyourworst
 Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
 */
-
+html, body{
+    max-width: 100vw;
+    width: 100vw;
+    overflow-x: hidden;
+}
 body{
     margin: 0;
     padding: 0;
@@ -21,6 +25,7 @@ body{
     font-size: 1rem;
     background-color: $hotPink;
     color: white;
+    
     @include mQ ($lg){
         font-size: 1.2rem;
     }
@@ -46,23 +51,39 @@ body{
     }
 }
 
+
+
 h1{
     font-family: $bebas;
     font-size: 3rem;
+    line-height: 3rem;
     @include mQ ($md){
         font-size: 6rem;
+        line-height: 6rem;
     }
     @include mQ ($lg){
         font-size: 8rem;
+        line-height: 8rem;
     }
     @include mQ ($xxl){
         font-size: 12rem;
+        line-height: 12rem;
     }
 }
 
 h2{
     font-family: $bebas;
     font-size: 2rem;
+    @include mQ ($md){
+        font-size: 3.5rem;
+        line-height: 3.5rem;
+    }
+
+}
+h3{
+    font-family: $bebas;
+    font-size: 2rem;
+    line-height: 2rem;
 }
 
 a{
@@ -70,7 +91,7 @@ a{
     color:white;
     font-family: $rock;
 }
-span.rock{
+.rock{
     font-family: $rock;
 }
 form{

@@ -9,17 +9,15 @@ img.cast_image{
         margin: 0 4px;
     }
 }
-.findout-divs{
+.findout-divs, .press{
     margin-top: 20px;
     padding-top: 20px;
-    padding-bottom: 20px;
-    h2, p, a.btn {
-        margin-left: 10px;
-        margin-right: 10px;
-    }
+    padding-bottom: 30px;
+    padding: 20px;
     .img-box{
-        width: 100%;
-        height: 40vh;
+        width: Calc(100% + 40px);
+        transform: translateX(-20px);
+        max-height: 40vh;
         overflow: hidden;
         display: flex;
         justify-content: center;
@@ -29,3 +27,25 @@ img.cast_image{
         }
     }
 }
+#reviews{
+    max-height: 60vh;
+    overflow-y: scroll;
+    @include mQ ($md){
+        max-height: 50vh;
+    }
+}
+#single-review{
+    i{
+        color: $mustard;
+    }
+    hr{
+        border-bottom: 1px solid white;
+        opacity: 1;
+        height: 10px;
+        border-left: 1px solid white;
+        border-right: 1px solid white;
+        border-top: none;
+
+    }
+}
+
